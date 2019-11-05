@@ -17,7 +17,7 @@ endpoints:
     enabled: true
   
 activemq:
-  host: broker-amq-headless-amq7-raif.apps.box.it-speeltuin.nl
+  host: broker-amq-headless-amq-demo.apps.box.it-speeltuin.nl
   port: 443
   username: amq-demo-user
   password: passw0rd

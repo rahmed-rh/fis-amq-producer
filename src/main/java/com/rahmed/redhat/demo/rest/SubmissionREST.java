@@ -41,22 +41,21 @@ public class SubmissionREST extends RouteBuilder {
 					//I need to create a JMS
 			 		.bean(ProcessorBean.class, "processJMSMessage(${body})")
 			 		.setExchangePattern(ExchangePattern.InOnly)
-			 		.to("activemq:topic:"+getName())
-			 		.recipientList(header("targetQueue"))
+			 		.to("activemq:queue:demoQueue"+getName())
+			 		//.recipientList(header("targetQueue"))
 			 		.transform(constant("OK Message Sent"))
 		         .end()
 			.endRest();
 		
 		
          
-        from("direct:demoQueue")
-        .log("Calling demoQueue -->  '${body}'");
-         
-        from("direct:demoQueue1")
-        .log("Calling demoQueue1 -->  '${body}'");
-         
-        from("direct:demoQueue2")
-        .log("Calling demoQueue2 -->  '${body}'");
+		/*
+		 * from("direct:demoQueue") .log("Calling demoQueue -->  '${body}'");
+		 * 
+		 * from("direct:demoQueue1") .log("Calling demoQueue1 -->  '${body}'");
+		 * 
+		 * from("direct:demoQueue2") .log("Calling demoQueue2 -->  '${body}'");
+		 */
 
 	}
 }
